@@ -1,5 +1,6 @@
 package com.igc.shoppingworld.entity;
 
+import com.igc.shoppingworld.model.ShoppingModel;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,19 +12,18 @@ import lombok.NoArgsConstructor;
 public class ShoppingEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String brandName;
-    private  String name;
+    private String name;
     private Integer price;
     private Integer rating;
 
-    public ShoppingEntity(String brandName, String name, Integer price, Integer rating) {
-        this.name = brandName;
-        this.name = name;
-        this.price = price;
-        this.rating = rating;
+    public ShoppingEntity(ShoppingModel shoppingModel) {
+        this.brandName = shoppingModel.getBrandName();
+        this.name = shoppingModel.getName();
+        this.price = shoppingModel.getPrice();
+        this.rating = shoppingModel.getRating();
+
     }
-
-
 }
