@@ -8,6 +8,8 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ShoppingService implements IShoppingService {
 
@@ -23,5 +25,10 @@ public class ShoppingService implements IShoppingService {
         ShoppingModel shoppingModel1 = modelMapper.map(shoppingEntity,ShoppingModel.class);
         shoppingRepo.save(shoppingEntity);
         return shoppingModel1;
+    }
+
+    @Override
+    public List<ShoppingEntity> getAllData() {
+        return shoppingRepo.findAll();
     }
 }

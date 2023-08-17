@@ -25,4 +25,9 @@ public class ShoppingController {
     public ResponseEntity<?> addData(@RequestBody @Valid ShoppingModel shoppingModel) {
         return new ResponseEntity<>(new Response("Data is added.", HttpStatus.CREATED, shoppingService.addData(shoppingModel)), HttpStatus.CREATED);
     }
+
+    @GetMapping("/getAllData")
+    public ResponseEntity<?> getAllData() {
+        return new ResponseEntity<>(new Response("Data is listed.", HttpStatus.OK, shoppingService.getAllData()), HttpStatus.OK);
+    }
 }
