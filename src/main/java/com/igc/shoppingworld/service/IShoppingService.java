@@ -13,4 +13,6 @@ public interface IShoppingService {
     public List<ShoppingEntity> getAllData();
 
     public String updateData(Integer id, ShoppingModel shoppingModel);
+
+    public String deleteData(Integer id);
 }

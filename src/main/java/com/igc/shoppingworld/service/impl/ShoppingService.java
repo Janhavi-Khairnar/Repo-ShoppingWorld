@@ -46,4 +46,15 @@ public class ShoppingService implements IShoppingService {
             return "Data is not found.";
         }
     }
+
+    @Override
+    public String deleteData(Integer id) {
+        ShoppingEntity shoppingEntity = shoppingRepo.findById(id).get();
+        if(shoppingEntity != null) {
+            shoppingRepo.delete(shoppingEntity);
+            return "Data is deleted.";
+        }   else {
+            return "Data is available.";
+        }
+    }
 }

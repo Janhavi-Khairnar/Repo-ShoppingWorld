@@ -36,4 +36,9 @@ public class ShoppingController {
         return new ResponseEntity<>(new Response("Data is updated.", HttpStatus.CREATED, shoppingService.updateData(id, shoppingModel)), HttpStatus.CREATED);
     }
 
+    @GetMapping("/deleteData/{id}")
+    public ResponseEntity<?> deleteData(@PathVariable ("id") Integer id) {
+        return new ResponseEntity<>(new Response("Data is deleted.", HttpStatus.OK, shoppingService.deleteData(id)), HttpStatus.OK);
+    }
+
 }
