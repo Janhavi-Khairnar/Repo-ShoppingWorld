@@ -41,4 +41,8 @@ public class ShoppingController {
         return new ResponseEntity<>(new Response("Data is deleted.", HttpStatus.OK, shoppingService.deleteData(id)), HttpStatus.OK);
     }
 
+    @GetMapping("/getDataFromId/{id}")
+    public ResponseEntity<?> getDataFromId(@PathVariable ("id") Integer id) {
+        return new ResponseEntity<>(new Response("Data displays.", HttpStatus.FOUND, shoppingService.getDataFromId(id)), HttpStatus.FOUND);
+    }
 }

@@ -15,4 +15,6 @@ public interface IShoppingService {
     public String updateData(Integer id, ShoppingModel shoppingModel);
 
     public String deleteData(Integer id);
+
+    public ShoppingModel getDataFromId(Integer id);
 }
