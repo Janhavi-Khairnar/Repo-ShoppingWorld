@@ -30,4 +30,10 @@ public class ShoppingController {
     public ResponseEntity<?> getAllData() {
         return new ResponseEntity<>(new Response("Data is listed.", HttpStatus.OK, shoppingService.getAllData()), HttpStatus.OK);
     }
+
+    @GetMapping("/updateData/{id}")
+    public ResponseEntity<?> updateData(@PathVariable ("id") Integer id, @RequestBody ShoppingModel shoppingModel) {
+        return new ResponseEntity<>(new Response("Data is updated.", HttpStatus.CREATED, shoppingService.updateData(id, shoppingModel)), HttpStatus.CREATED);
+    }
+
 }

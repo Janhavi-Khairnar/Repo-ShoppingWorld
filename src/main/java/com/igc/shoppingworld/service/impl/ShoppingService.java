@@ -31,4 +31,19 @@ public class ShoppingService implements IShoppingService {
     public List<ShoppingEntity> getAllData() {
         return shoppingRepo.findAll();
     }
+
+    @Override
+    public String updateData(Integer id, ShoppingModel shoppingModel) {
+        ShoppingEntity shoppingEntity = shoppingRepo.findById(id).get();
+        if(shoppingEntity != null) {
+            shoppingEntity.setBrandName(shoppingModel.getBrandName());
+            shoppingEntity.setName(shoppingModel.getName());
+            shoppingEntity.setPrice(shoppingModel.getPrice());
+            shoppingEntity.setRating(shoppingModel.getRating());
+            shoppingRepo.save(shoppingEntity);
+            return "Data is updated.";
+        }       else {
+            return "Data is not found.";
+        }
+    }
 }
